@@ -1,0 +1,247 @@
+#wrapper{
+    width:450px;
+}
+*{
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-user-select: none;                /* disable text select */
+-webkit-touch-callout: none;              /* disable callout, image save panel (popup) */
+-webkit-tap-highlight-color: transparent; /* "turn off" link highlight */
+}
+a:focus{
+  outline:0; // Firefox (remove border on link click)
+}
+.header{
+    font-size: 18px;
+    text-align: center;
+    color:#3b73af;
+    text-decoration:none;
+}
+.header a{
+    text-decoration: none;
+    color: #3b73af;
+    text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+#buttons_bar{
+    margin-top: 40px;
+    float:left;
+    width: 30px;
+}
+#sub_wrapper{
+    float:left;
+    width:90%;
+}
+#buttons_bar span.active{
+    background-color:#3b73af;
+}
+#buttons_bar span{
+    display:block;
+    border-radius: 3px;
+    width: 119px;
+    background-color: #4796e6;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    background-image: -moz-linear-gradient(top, #4796e6, #3873af);
+    color:white;
+    height: 27px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 120px;
+    margin-bottom: 120px;
+    transform: rotate(270deg);
+    margin-left: -53px;
+    cursor:pointer;
+    line-height:27px;
+}
+
+#dashboard{
+    display:none;
+}
+
+img.loader{
+    margin: 0 auto;
+    display: block;
+}
+#dashboard_accordion div.iss:after ,.control_elements:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+#dashboard_accordion div.iss a, #dashboard_accordion div.iss p{
+    text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    text-decoration:none;
+}
+#dashboard_accordion div.iss{
+    padding-top: 10px;
+    color: #444444;
+    margin-bottom: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+}
+#dashboard_accordion div.iss div{
+    width:95%;
+    float:left;
+}
+#dashboard_accordion img.dash_status{
+    width:5%;
+    float:right;
+    margin: 15px -3px;
+}
+#dashboard_accordion .text_dash a:first-child{
+    color:rgb(24, 63, 14);
+}
+.authWrapper{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    background-color:rgba(0,0,0,0.5);
+    z-index:100;
+}
+.loginFrom{
+    position: relative;
+    margin: 50px auto;
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+}
+.loginFrom h2{
+    padding: 20px 70px;
+    margin: 0;
+    color: #666;
+}
+.loginFrom .warning{
+    color: red;
+    margin: -10 0 0;
+    padding: 0 14px 5px;
+}
+.loginFrom form{
+    width: 90%;
+    margin: 0 auto;
+}
+.loginFrom input{
+    float: right;
+}
+.loginFrom label{
+    float: left;
+    line-height: 24px;
+}
+.loginFrom button{
+    position: absolute;
+    bottom: 35px;
+    left: 100px;
+    width: 100px;
+    height: 25px;
+}
+.loginButton {
+    box-shadow:inset 0px 1px 0px 0px #bee2f9;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+    background-color:#63b8ee;
+    text-indent:0;
+    border:1px solid #3866a3;
+    display:inline-block;
+    color:#062752;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #7cacde;
+}
+.loginButton:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee) );
+    background-color:#468ccf;
+}
+.loginButton:active {
+     bottom: 36px;
+}
+.control_elements select{
+    float:left;
+}
+.control_elements .btns{
+    float:right;
+}
+.control_elements .btns span{
+    cursor: pointer;
+    color: #707070;
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: bold;
+    width: 23px;
+    line-height: 20px;
+    border-radius: 999px;
+    height: 20px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #D3D3D3;
+}
+.control_elements .btns span:hover{
+    background-color:#D3D3D3;
+}
+.btns .desc{
+    background: transparent url("../images/desc.png") no-repeat 80% 5px;
+    padding-right: 12px;
+}
+.btns .asc{
+    background: transparent url("../images/asc.png") no-repeat 80% 5px;
+    padding-right: 12px;
+}
+.control_elements{
+    margin-bottom:10px;
+}
+
+#accordion h3 .iconLink {
+     background:  url("../images/1409938814_link-external-16.png") no-repeat;
+     padding-left: 6px;
+     padding-right: 6px;
+}
+
+#accordion h3 .link {
+    margin-left: 5px;
+    margin-right: 3px;
+}
+
+#accordion h3 .priorityText {
+    float:right;
+    color:#D3D3D3;
+}
+#accordion h3 .priorityIcon {
+    margin-left: 5px;
+    margin-right: 3px;
+    padding-left: 15px;
+}
+
+#accordion .summary .header {
+    font-size: 16px;
+    color: #3b73af;
+    text-decoration: none;
+}
+
+#accordion .description .header {
+    font-size: 16px;
+    color: #3b73af;
+    text-decoration: none;
+}
+.statusSection p{
+    display: inline;
+}
+.statusSection .workflow{
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    display: inline-block
+}
+.workflow img{
+    padding-right: 15px;
+}
+.workflow p{
+    padding: 0 10px 0 35px;
+}
+.workFlowItem{
+    z-index: 100;
+    padding: 2px 10px;
+    font-style: italic;
+    border-top: 1px dotted #CACACA;
+}
+.workFlowItem:hover, .workflow p:hover{
+    cursor: pointer;
+}

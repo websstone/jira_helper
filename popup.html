@@ -1,0 +1,37 @@
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.jsonp-2.4.0.min.js"></script>
+<script type="text/javascript" src="js/libs/async.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<link rel="stylesheet" href="css/jquery-ui.theme.css">
+<link rel="stylesheet" href="css/jquery-ui.structure.css">
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<div id="wrapper">
+
+    <h1 class="header"><a href="https://jira.epam.com/">JIRA Helper</a><hr></h1>
+    <div id="buttons_bar">
+        <span class=" active issues_button">Issues</span>
+        <span class="dashboard_button">Dashboard</span>
+    </div>
+
+    <div id="sub_wrapper">
+        <div class="section" id="issues">
+            <div class="control_elements">
+                <div class="btns">
+                    <span data-srt='type' data-pr='ASC' class="btn type" title="Sort By Issue Type">T</span>
+                    <span data-srt='status' data-pr='ASC' class="btn status" title="Sort By Status">S</span>
+                    <span data-srt='updatedDate' data-pr='ASC' class="btn date" title="Sort by Updated date">D</span>
+                    <span data-srt='priority' data-pr='ASC' class="btn priority desc" title="Sort By Priority">P</span>
+                </div>
+            </div>
+            <img class="loader foracc" src="images/loading.gif"/>
+            <div id="accordion"></div>
+        </div>
+        <div class="section" id="dashboard">
+            <img class="loader" src="images/loading.gif"/>
+            <div id="dashboard_accordion"></div>
+        </div>
+    </div>
+</div>
