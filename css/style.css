@@ -209,17 +209,21 @@ img.loader{
     padding-left: 15px;
 }
 
-#accordion .summary .header {
+#accordion .header {
     font-size: 16px;
     color: #3b73af;
     text-decoration: none;
 }
 
-#accordion .description .header {
-    font-size: 16px;
-    color: #3b73af;
-    text-decoration: none;
+#accordion .attachments {
+    margin-top: 10px;
 }
+
+#accordion .attachments ul {
+    list-style-type: none;
+    margin-top: 3px;
+}
+
 .statusSection p{
     display: inline;
 }

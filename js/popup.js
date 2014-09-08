@@ -129,7 +129,11 @@ JH.issueList.renderIssues = function(JQL){
         $loader.hide();
         $accordion.accordion({
             activate: function( event, ui ) {
-                JH.issueList.reRenderIssue( ui.newHeader.attr("issueId"), ui.newPanel );
+                var isRendered =  ui.newHeader.attr("rendered");
+                if ( !isRendered ) {
+                    JH.issueList.renderAttachment( ui.newHeader.attr("issueId"), ui.newPanel );
+                    ui.newHeader.attr('rendered', 'true');
+                }
             }
         });
     });
@@ -232,54 +236,39 @@ JH.issueList.loadIssue = function(JQL , done){
     });
 };
 
-JH.issueList.renderIssue = function( issue, $container ) {
-
-     var $summary = $('<p/>').html('<span class="header">Summary:</span> ');
-     $summary.append(issue.fields.summary);
-     $summary.addClass('summary');
-     $container.append($summary);
-
-     var $description = $('<p/>').html('<span class="header">Description:</span> '),
-         status = issue.fields.status;
-     $description.append( issue.fields.description );
-     $description.addClass('description');
-     $container.append($description);
-     $container.append($("<div>").addClass("statusSection")
-               .append($("<p>").text("Status: "))
-               .append($("<img>").attr("src", status.iconUrl).height(16).width(16).attr("alt",status.description))
-               .append($("<p>").text(status.name)));
-
-     var attachments = issue.fields.attachment;
-     if ( attachments && attachments.length ) {
-        $attachments = $('<div/>');
-        $attachments.append('Attachments: ');
-        for( var i = 0; i < attachments.length; i++) {
-            var $link = $('<a/>');
-            $link.html(attachments[i].filename);
-            $link.attr( 'href', attachments[i].content  );
-            $attachments.append( $link );
-        }
-        $container.append( $attachments );
-     }
-}
-
-JH.issueList.reRenderIssue = function( issueId, $container  ) {
+JH.issueList.renderAttachment = function( issueId, $container  ) {
 
     var issue = JH.issueList.issueMap[issueId];
-    var render = function() {
-        $container.html('');
-        JH.issueList.renderIssue( issue.self, $container );
+    var render = function( issue ) {
+        var attachments = issue.fields.attachment;
+        if ( attachments && attachments.length ) {
+            $attachments = $('<div/>');
+            $attachments.append('<span class="header">Attachments:<span> ');
+            $attachments.addClass('attachments');
+            $list = $('<ul/>');
+            for( var i = 0; i < attachments.length; i++) {
+                var $link = $('<a/>');
+                $link.html(attachments[i].filename);
+                $link.attr( 'href', attachments[i].content  );
+                $list.append( $('<li/>').html($link));
+            }
+            $attachments.append( $list );
+            $container.append( $attachments );
+        }
     }
     if ( issue ) {
-        $container.html('<img class="loader" src="images/loading.gif"/>');
+        //$container.html('<img class="loader" src="images/loading.gif"/>');
         if ( !issue.self ) {
             issue.fetch( {
                 success : function() {
-                    render();
+                    render( issue.self );
+                },
+                error : function( err ) {
+                    console.err( err );
                 }
             });
         } else {
-            render();
+            render( issue.self );
         }
     }
 };
